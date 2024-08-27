@@ -15,6 +15,7 @@
 	var/dat = ""
 	switch(mode)
 		if (0)
+			dat += {"<meta charset="UTF-8">"}
 			dat += {"<h4><span class='pda_icon pda_mail'></span> SpaceMessenger V3.9.4</h4>
 				<a href='byond://?src=\ref[src];choice=Toggle Ringer'><span class='pda_icon pda_bell'></span> Ringer: [silent == 1 ? "Off" : "On"]</a> |
 				<a href='byond://?src=\ref[src];choice=Toggle Messenger'><span class='pda_icon pda_mail'></span> Send / Receive: [toff == 1 ? "Off" : "On"]</a> |
@@ -47,6 +48,7 @@
 			if (count == 0)
 				dat += "None detected.<br>"
 		if(1)
+			dat += {"<meta charset="UTF-8">"}
 			dat += {"<h4><span class='pda_icon pda_mail'></span> SpaceMessenger V3.9.4</h4>
 				<a href='byond://?src=\ref[src];choice=Clear'><span class='pda_icon pda_blank'></span> Clear Messages</a>
 				<h4><span class='pda_icon pda_mail'></span> Messages</h4>"}

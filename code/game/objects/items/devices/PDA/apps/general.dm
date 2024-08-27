@@ -62,7 +62,7 @@
 	var/notehtml = ""
 
 /datum/pda_app/notekeeper/get_dat(var/mob/user)
-	return "<h4><span class='pda_icon pda_notes'></span> Notekeeper V2.1</h4> <a href='byond://?src=\ref[src];Edit=1'>Edit</a><br>[note]"
+	return "<meta charset='UTF-8'><h4><span class='pda_icon pda_notes'></span> Notekeeper V2.1</h4> <a href='byond://?src=\ref[src];Edit=1'>Edit</a><br>[note]"
 
 /datum/pda_app/notekeeper/Topic(href, href_list)
 	if(..())

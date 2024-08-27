@@ -63,7 +63,7 @@
 					var/icon/side = new(active1.fields["photo"], dir = WEST)
 					user << browse_rsc(front, "front.png")
 					user << browse_rsc(side, "side.png")
-					dat += "<CENTER><B>Medical Record</B></CENTER><BR>"
+					dat += "<meta charset='utf-8'><CENTER><B>Medical Record</B></CENTER><BR>"
 					if ((istype(active1, /datum/data/record) && data_core.general.Find(active1)))
 						dat += "<table><tr><td>Name: [active1.fields["name"]] \
 								ID: [active1.fields["id"]]<BR>\n	\

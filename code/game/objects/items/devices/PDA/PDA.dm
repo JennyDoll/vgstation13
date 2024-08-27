@@ -144,6 +144,7 @@ var/global/msg_id = 0
 		send_asset_list(user.client, C.assets)
 
 	var/dat = list()
+	dat += {"<meta charset='UTF-8'>"}
 	dat += {"
 	<html>
 	<head><title>Personal Data Assistant</title></head>

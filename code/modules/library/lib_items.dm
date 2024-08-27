@@ -250,7 +250,7 @@
 	if (!isobserver(user))
 		playsound(user, "pageturn", 50, 1, -5)
 	if(src.dat)
-		user << browse("<TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=[name];size=[book_width]x[book_height]")
+		user << browse("<meta charset='UTF-8'><TT><I>Penned by [author].</I></TT> <BR>" + "[dat]", "window=[name];size=[book_width]x[book_height]")
 		if(!isobserver(user))
 			user.visible_message("[user] opens a book titled \"[src.title]\" and begins reading intently.")
 		onclose(user, "book")

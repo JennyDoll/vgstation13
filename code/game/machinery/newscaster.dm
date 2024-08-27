@@ -275,7 +275,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 	if(istype(user, /mob/living/carbon/human) || istype(user,/mob/living/silicon) || isobserver(user))
 		var/mob/M = user
 		var/dat
-		dat = text("<HEAD><TITLE>Newscaster</TITLE></HEAD><H3>Newscaster Unit #[unit_no]</H3>")
+		dat = text("<meta charset='utf-8'><HEAD><TITLE>Newscaster</TITLE></HEAD><H3>Newscaster Unit #[unit_no]</H3>")
 
 		scan_user(M) //Newscaster scans you
 
@@ -1186,7 +1186,7 @@ var/list/obj/machinery/newscaster/allCasters = list() //Global list that will co
 		switch(screen)
 			if(NEWSPAPER_TITLE_PAGE) //Cover
 
-				dat += {"<DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</FONT></B></div>
+				dat += {"<meta charset='utf-8'><DIV ALIGN='center'><B><FONT SIZE=6>The Griffon</FONT></B></div>
 					<DIV ALIGN='center'><FONT SIZE=2>Nanotrasen-standard newspaper, for use on Nanotrasen Space Facilities</FONT></div><HR>"}
 				if(isemptylist(news_content))
 					if(important_message)

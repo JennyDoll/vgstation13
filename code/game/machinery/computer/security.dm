@@ -67,6 +67,7 @@
 		if (authenticated)
 			switch(screen)
 				if(1.0)
+					dat += {"<meta charset="UTF-8">"}
 					dat += {"
 <p style='text-align:center;'>"}
 					dat += text("<A href='?src=\ref[];choice=Search Records'>Search Records</A><BR>", src)
