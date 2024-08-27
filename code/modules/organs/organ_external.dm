@@ -2067,6 +2067,9 @@ Note that amputating the affected organ does in fact remove the infection from t
 	name = "robotic head"
 
 /obj/item/organ/external/head/New(loc, mob/living/carbon/human/H, var/datum/organ/external/head/O)
+	if(!H)
+		return
+
 	origin_body = makeweakref(H)
 
 	if(istype(H))
