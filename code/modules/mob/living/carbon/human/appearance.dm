@@ -192,7 +192,7 @@
 	if (species)
 		switch (species.name)
 			if ("Human")
-				var/new_tone = input(user, "Select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", title, "[35-my_appearance.s_tone]")  as text
+				var/new_tone = input(user, "Select skin tone level: 1-220", title, "[35-my_appearance.s_tone]")  as text
 				if (!new_tone)
 					new_tone = 35
 				my_appearance.s_tone = max(min(round(text2num(new_tone)), 220), 1)
@@ -208,7 +208,7 @@
 					new_tone = 1
 				my_appearance.s_tone = max(min(round(text2num(new_tone)), 4), 1)
 	else
-		var/new_tone = input(user, "Select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", title, "[35-my_appearance.s_tone]")  as text
+		var/new_tone = input(user, "Select skin tone level: 1-220", title, "[35-my_appearance.s_tone]")  as text
 		if (!new_tone)
 			new_tone = 35
 		my_appearance.s_tone = max(min(round(text2num(new_tone)), 220), 1)

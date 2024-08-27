@@ -300,7 +300,7 @@ var/list/sent_strike_teams = list()
 			new_commando.my_appearance.g_eyes = hex2num(copytext(new_eyes, 4, 6))
 			new_commando.my_appearance.b_eyes = hex2num(copytext(new_eyes, 6, 8))
 
-		var/new_tone = input(user, "Please select skin tone level: 1-220 (1=albino, 35=caucasian, 150=black, 220='very' black)", "Character Generation")  as text
+		var/new_tone = input(user, "Please select skin tone level: 1-220", "Character Generation")  as text
 
 		if (!new_tone)
 			new_tone = 35
