@@ -3,7 +3,8 @@
 // consists of light fixtures (/obj/machinery/light) and light tube/bulb items (/obj/item/weapon/light)
 
 var/global/list/light_colors = list(
-	"default" = LIGHT_COLOR_TUNGSTEN, \
+	"default" = LIGHT_COLOR_FLUORESCENT, \
+	"default (bulb)" = LIGHT_COLOR_TUNGSTEN, \
 	"default (HE)" = LIGHT_COLOR_HALOGEN, \
 	"red" = LIGHT_COLOR_RED, \
 	"green" = LIGHT_COLOR_GREEN, \
@@ -72,7 +73,7 @@ var/global/list/light_colors = list(
 			src.stage = 2
 			user.visible_message("[user.name] adds wires to \the [src].", \
 				"You add wires to \the [src]")
-			
+
 			var/obj/machinery/light/newlight = new fixture_type(src.loc)
 			newlight.dir = src.dir
 			src.transfer_fingerprints_to(newlight)
@@ -338,7 +339,7 @@ var/global/list/obj/machinery/light/alllights = list()
 				current_bulb.brightness_range = clamp(new_range, 0, initial(current_bulb.brightness_range))
 		update()
 		return
-		
+
 	if (istype(W,/obj/item/stack/light_w))
 		if(rgb_upgrade)
 			to_chat(user, "This light is already customizable.")
@@ -348,8 +349,8 @@ var/global/list/obj/machinery/light/alllights = list()
 		rgb_upgrade = TRUE
 		to_chat(user, "You insert \the [W] into \the [src], allowing multitool customization.")
 		return
-	
-	
+
+
 	if(rgb_upgrade && iscrowbar(W))
 		W.playtoolsound(src, 75)
 		user.visible_message("[user.name] removes some plastic from \the [src].", \
@@ -359,7 +360,7 @@ var/global/list/obj/machinery/light/alllights = list()
 		drop_stack(/obj/item/stack/light_w, get_turf(src), 1, user)
 		return
 	user.delayNextAttack(8)
-	
+
 	// attempt to insert light
 	if(istype(W, /obj/item/weapon/light))
 		if(current_bulb)
@@ -670,7 +671,7 @@ var/global/list/obj/machinery/light/alllights = list()
 	w_type = RECYK_GLASS
 	brightness_range = 6
 	brightness_power = 1.5
-	brightness_color = LIGHT_COLOR_TUNGSTEN
+	brightness_color = LIGHT_COLOR_FLUORESCENT
 	cost = 8
 
 /obj/item/weapon/light/tube/he
