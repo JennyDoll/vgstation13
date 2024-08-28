@@ -552,7 +552,7 @@
 		silent = 0
 	else				//ALIVE. LIGHTS ARE ON
 		updatehealth()
-		if((health < config.health_threshold_dead || !has_brain()) && !(status_flags & BUDDHAMODE))
+		if((health <= config.health_threshold_dead || !has_brain()) && !(status_flags & BUDDHAMODE))
 			death()
 			blinded = 1
 			stat = DEAD
