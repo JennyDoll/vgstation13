@@ -68,6 +68,10 @@
 	name = "Short Hair"	  // try to capatilize the names please~
 	icon_state = "hair_a" // you do not need to define _s or _l sub-states, game automatically does this for you
 
+/datum/sprite_accessory/hair/shortalt
+	name = "Short Hair Alt"
+	icon_state = "hair_shortalt"
+
 /datum/sprite_accessory/hair/cut
 	name = "Cut Hair"
 	icon_state = "hair_c"
@@ -79,6 +83,10 @@
 /*/datum/sprite_accessory/hair/longish
 	name = "Longer Hair"
 	icon_state = "hair_b2"*/
+
+/datum/sprite_accessory/hair/antenna
+	name = "Antenna"
+	icon_state = "hair_antenna"
 
 /datum/sprite_accessory/hair/longer
 	name = "Long Hair"
@@ -100,6 +108,10 @@
 	name = "Longer Fringe"
 	icon_state = "hair_vlongfringe"
 
+/datum/sprite_accessory/hair/ladylike
+	name = "Ladylike"
+	icon_state = "hair_ladylike"
+
 /datum/sprite_accessory/hair/halfbang
 	name = "Half-banged Hair"
 	icon_state = "hair_halfbang"
@@ -111,6 +123,24 @@
 /datum/sprite_accessory/hair/ponytail1
 	name = "Ponytail 1"
 	icon_state = "hair_ponytail"
+
+/datum/sprite_accessory/hair/ponytail2
+	name = "Ponytail 2"
+	icon_state = "hair_pa"
+	gender = FEMALE
+
+/datum/sprite_accessory/hair/ponytail3
+	name = "Ponytail 3"
+	icon_state = "hair_ponytail3"
+
+/datum/sprite_accessory/hair/ponytail4
+	name = "Ponytail 4"
+	icon_state = "hair_ponytail4"
+	gender = FEMALE
+
+/datum/sprite_accessory/hair/ponytail5
+	name = "Ponytail 5"
+	icon_state = "hair_ponytail5"
 
 /datum/sprite_accessory/hair/sideswept
 	name = "Sideswept"
@@ -155,15 +185,6 @@
 /datum/sprite_accessory/hair/wolfmane
 	name = "Wolfmane"
 	icon_state = "hair_wolfmane"
-
-/datum/sprite_accessory/hair/ponytail2
-	name = "Ponytail 2"
-	icon_state = "hair_pa"
-	gender = FEMALE
-
-/datum/sprite_accessory/hair/ponytail3
-	name = "Ponytail 3"
-	icon_state = "hair_ponytail3"
 
 /datum/sprite_accessory/hair/longpony
 	name = "Long Ponytail"
@@ -247,11 +268,32 @@
 	icon_state = "hair_bowlcut"
 	gender = MALE
 
+/datum/sprite_accessory/hair/bun1
+	name = "Bun 1"
+	icon_state = "hair_bun"
+
+/datum/sprite_accessory/hair/bun2
+	name = "Bun 2"
+	icon_state = "hair_bun2"
+
+/datum/sprite_accessory/hair/bun3
+	name = "Bun 3"
+	icon_state = "hair_bun3"
+	gender = FEMALE
+
+/datum/sprite_accessory/hair/bunalt
+	name = "Bun Alt"
+	icon_state = "hair_bunalt"
+
 /datum/sprite_accessory/hair/buzz
 	name = "Buzzcut"
 	icon_state = "hair_buzzcut"
 	gender = MALE
 	species_allowed = list("Human","Manifested","Unathi")
+
+/datum/sprite_accessory/hair/chop
+	name = "Chop"
+	icon_state = "hair_chop"
 
 /datum/sprite_accessory/hair/crew
 	name = "Crewcut"
@@ -292,14 +334,18 @@
 	icon_state = "hair_bigafro"
 	gender = MALE
 
+/datum/sprite_accessory/hair/emo
+	name = "Emo"
+	icon_state = "hair_emo"
+
+/datum/sprite_accessory/hair/longemo
+	name = "Long Emo"
+	icon_state = "hair_emolong"
+
 /datum/sprite_accessory/hair/sargeant
 	name = "Flat Top"
 	icon_state = "hair_sargeant"
 	gender = MALE
-
-/datum/sprite_accessory/hair/emo
-	name = "Emo"
-	icon_state = "hair_emo"
 
 /datum/sprite_accessory/hair/fag
 	name = "Flow Hair"
@@ -308,6 +354,10 @@
 /datum/sprite_accessory/hair/feather
 	name = "Feather"
 	icon_state = "hair_feather"
+
+/datum/sprite_accessory/hair/fringetail
+	name = "Fringetail"
+	icon_state = "hair_fringetail"
 
 /datum/sprite_accessory/hair/hitop
 	name = "Hitop"
@@ -341,6 +391,11 @@
 /datum/sprite_accessory/hair/himecut
 	name = "Hime Cut"
 	icon_state = "hair_himecut"
+	gender = FEMALE
+
+/datum/sprite_accessory/hair/mediumbraid
+	name = "Medium Braid"
+	icon_state = "hair_mediumbraid"
 	gender = FEMALE
 
 /datum/sprite_accessory/hair/braid
@@ -456,6 +511,11 @@
 	icon_state = "hair_twintail"
 	gender = FEMALE
 
+/datum/sprite_accessory/hair/twinbuns
+	name = "Twinbuns"
+	icon_state = "hair_doublebun"
+	gender = FEMALE
+
 /datum/sprite_accessory/hair/cia
 	name = "CIA"
 	icon_state = "hair_cia"
@@ -567,6 +627,21 @@
 /datum/sprite_accessory/hair/sonicboom
 	name = "SonicBoom"
 	icon_state = "hair_sonicboom"
+
+/datum/sprite_accessory/hair/volaju
+	name = "Volaju"
+	icon_state = "hair_volaju"
+
+/datum/sprite_accessory/hair/ziegler
+	name = "Ziegler"
+	icon_state = "hair_ziegler"
+	gender = FEMALE
+	additional_accessories = 1
+
+/datum/sprite_accessory/hair/zonetan
+	name = "Zone-tan"
+	icon_state = "hair_zone"
+	gender = FEMALE
 
 /*
 ///////////////////////////////////
