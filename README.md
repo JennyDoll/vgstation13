@@ -2,7 +2,10 @@
 
 [![forinfinityandbyond](https://user-images.githubusercontent.com/5211576/29499758-4efff304-85e6-11e7-8267-62919c3688a9.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
-[Website](http://ss13.moe) - [Code](https://github.com/vgstation-coders/vgstation13)
+[/vg/station Website](http://ss13.moe) - [Upstream](https://github.com/vgstation-coders/vgstation13)
+
+This repository hosts a /vg/station fork that aims to bring a serious, immersive and roleplay-heavy experience for the Russian Space Station 13 audiences. To reiterate: nobody asked for this, but we're doing it anyway. 
+
 <!---
 The coderbus is dead for good.
 
@@ -14,15 +17,15 @@ Check the thread on /vg/ for a link or ask a player in-game for an invite.
 ---
 
 ### GETTING THE CODE
-The simplest but least useful way to obtain the code is using the Github .zip feature. You can click [here](https://github.com/vgstation-coders/vgstation13/archive/Bleeding-Edge.zip) to get the latest stable code as a .zip file, then unzip it to wherever you want. This is mostly useful for people looking to get assets from the server or to host a quick short-term game between friends.
+The simplest but least useful way to obtain the code is using the Github .zip feature. You can click [here](https://github.com/JennyDoll/vgstation13/archive/refs/heads/Bleeding-Edge.zip) to get the latest stable code as a .zip file, then unzip it to wherever you want. This is mostly useful for people looking to get assets from the server or to host a quick short-term game between friends.
 
 Alternatively, the code can be acquired via the use of a Git client as described below. If you're still having difficulty, reach out to one of our coders on Discord and they should be happy to help.
 
 ### Git client
 
-The slightly more complicated but way more useful way is to use a Git client. If you want to contribute code and updates to /vg/, you're going to want to do things this way.
+The slightly more complicated but way more useful way is to use a Git client. If you want to contribute code and updates, you're going to want to do things this way.
 
-We recommend our users use the Github Desktop client, available [here](https://desktop.github.com/). After installing the client and logging in with your Github account, go back to the [Github page](https://github.com/vgstation-coders/vgstation13) for our code and press the "Fork" button at the top of the page. This will walk you through the process of creating a clone of our codebase on your account.
+We recommend our users use the Github Desktop client, available [here](https://desktop.github.com/). After installing the client and logging in with your Github account, go back to the [Github page](https://github.com/JennyDoll/vgstation13) for our code and press the "Fork" button at the top of the page. This will walk you through the process of creating a clone of our codebase on your account.
 
 Once the fork is complete, go back to the Github Desktop client and press the 'Current Reposistory' button at the top left. From there, click 'Add', then 'Clone Reposistory'. If your fork doesn't appear on the list immediately, press the refresh button at the top right and it should find it. Once you've selected it, Github Desktop will then begin downloading the codebase to the specified location on your machine. Once the clone finishes downloading, you've got your own copy of the code ready to go complete with easy tools to keep it sync'd and to make your own PRs to the repo.
 
