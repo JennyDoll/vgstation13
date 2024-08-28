@@ -222,7 +222,7 @@ var/list/requests_consoles_categorised = list("Command" = list(),"Engineering" =
 
 /obj/machinery/requests_console/interact(user as mob)
 	var/dat
-	dat = text("<meta-<HEAD><TITLE>Requests Console</TITLE></HEAD><H3>[department] Requests Console</H3>")
+	dat = text("<meta charset='utf-8'><HEAD><TITLE>Requests Console</TITLE></HEAD><H3>[department] Requests Console</H3>")
 	if(!open)
 		switch(screen)
 			if(1)	//req. assistance
