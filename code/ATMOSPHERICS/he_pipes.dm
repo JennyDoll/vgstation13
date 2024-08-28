@@ -186,7 +186,7 @@
 	initialize_directions = pipe.get_pdir()
 	initialize_directions_he = pipe.get_hdir()
 	if (!initialize(1))
-		to_chat(usr, "There's nothing to connect this junction to! (with how the pipe code works, at least one end needs to be connected to something, otherwise the game deletes the segment)")
+		to_chat(usr, "There's nothing to connect this junction to!")
 		return 0
 	build_network()
 	if (node1)
