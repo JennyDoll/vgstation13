@@ -265,17 +265,21 @@
 	var/counter=length(phrase)
 	var/newphrase=""
 	var/newletter=""
+	var/list/replacements_consonants = list(
+		"s" = "ch", "c" = "k",
+		"г" = "х", "к" = "х", "з" = "с", "ц" = "с", "ч" = "щ", "щ" = "шш", "п" = "б"
+		)
+	var/list/replacements_vowels = list(
+		"o" = "u", "a" = "ah",
+		"ы" = "'", "а" = "'", "е" = "э", "ё" = "'", "и" = "'", "о" = "'", "у" = "'", "ю" = "'"
+		)
 	while(counter>=1)
-		newletter=copytext(phrase,(leng-counter)+1,(leng-counter)+2)
+		newletter=copytext_char(phrase,(leng-counter)+1,(leng-counter)+2)
 		if(rand(1,3)==3)
-			if(lowertext(newletter)=="o")
-				newletter="u"
-			if(lowertext(newletter)=="s")
-				newletter="ch"
-			if(lowertext(newletter)=="a")
-				newletter="ah"
-			if(lowertext(newletter)=="c")
-				newletter="k"
+			if(lowertext(newletter) in replacements_consonants)
+				newletter = replacements_consonants[lowertext(newletter)]
+			if(lowertext(newletter) in replacements_vowels)
+				newletter = replacements_vowels[lowertext(newletter)]
 		switch(rand(1,15))
 			if(1,3,5,8)
 				newletter="[lowertext(newletter)]"
