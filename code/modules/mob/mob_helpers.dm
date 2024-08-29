@@ -298,7 +298,8 @@
 	var/p = 1 //1 is the start of any word
 	while(p <= n)
 		var/n_letter = copytext_char(te, p, p + 1) //copies text from a certain distance. In this case, only one letter at a time.
-		if (prob(80) && (ckey(n_letter) in list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z")))
+		if (prob(80) && (lowertext(n_letter) in list("b","c","d","f","g","h","j","k","l","m","n","p","q","r","s","t","v","w","x","y","z",
+                                                "б", "в", "г", "д", "ж", "з", "к", "л", "м", "н", "п", "р", "с", "т", "ф", "х", "ц", "ч", "ш", "щ")))
 			if (prob(10))
 				n_letter = "[n_letter]-[n_letter]-[n_letter]-[n_letter]" //replaces the current letter with this instead.
 			else
@@ -368,12 +369,12 @@
 	//assorted replacements to make text feel "dumb"
 	message = replacetext(message, "he", "eh") //he, she, the -> eh, seh, teh, etc
 	message = replacetext(message, "ies", "is")
-	message = replacetext(message, "you", "u") 
+	message = replacetext(message, "you", "u")
 	message = replacetext(message, "iou", "ou") //delicous
 	message = replacetext(message, "xc", "x") //exited
 	message = replacetext(message, "air", "er") //cher, her
 	message = replacetext(message, "uni", "uin")
-	message = replacetext(message, "dg", "g") //knowlege, 
+	message = replacetext(message, "dg", "g") //knowlege,
 	message = replacetext(message, "tch", "ch") //bich
 	message = replacetext(message, "are", "ar")
 	message = replacetext(message, "pl", "pul")
@@ -410,7 +411,7 @@
 		var/list/words = splittext(message, " ")
 		words[rand(0, words.len)] = pick("um,", "umm,", "uh,", "uhh,")
 		message = jointext(words, " ")
-			
+
 	if(prob(35))
 		message = uppertext(message)
 		if(prob(50))
