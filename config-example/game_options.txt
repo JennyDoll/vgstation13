@@ -44,8 +44,8 @@ RESPAWN_DELAY 30
 
 
 ## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied. 
-RUN_DELAY 0
-WALK_DELAY 0
+RUN_SPEED 0
+WALK_SPEED 0
 
 
 ## The variables below affect the movement of specific mob types.
