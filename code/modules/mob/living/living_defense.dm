@@ -278,6 +278,8 @@
 // End BS12 momentum-transfer code.
 //Mobs on Fire
 /mob/living/ignite()
+	if(!fire_stacks)
+		return 0
 	if(on_fire)
 		return 0
 	if(check_fire_protection())
@@ -327,7 +329,7 @@
 		var/datum/gas_mixture/G = T.return_air() // Check if we're standing in an oxygenless environment
 		if(G)
 			oxy = G.molar_density(GAS_OXYGEN)
-	if(oxy < (1 / CELL_VOLUME) || fire_stacks < 0)
+	if(oxy < (1 / CELL_VOLUME) || fire_stacks <= 0)
 		extinguish() //If there's no oxygen in the tile we're on, put out the fire
 		return 1
 	T.hotspot_expose(700, SMALL_FLAME, 1)

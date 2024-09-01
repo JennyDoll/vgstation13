@@ -897,6 +897,7 @@
 					var/mob/living/L = user
 					L.adjustFireLoss(10)
 					L.adjust_fire_stacks(1)
+					L.ignite()
 					to_chat(L,"<span class='notice'>You set yourself on fire exiting the barrel!</span>")
 			user.forceMove(loc)
 			update_icon()
