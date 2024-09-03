@@ -73,6 +73,41 @@ ADDING CREDITS?  EDIT templates/changelog.tmpl.html
 		*** DO NOT FUCK WITH THIS FILE OR YOU WILL CAUSE MERGE CONFLICTS. ***
 		-->
 		<div class="commit sansserif">
+			<h2 class="date">2024.09.03</h2>
+			<h3 class="author">DeityLink updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Fixed being able to walk through closed Firelocks after clicking on them while not having permission due to dangerous atmos conditions.</li>
+				<li class="bugfix">Fixed the leather glove &amp; handwraps not showing up on the character&#39;s sprite when worn.</li>
+				<li class="bugfix">Door Moody Lights no longer look much brighter than they should when door lights are flashing during their opening/closing/deny/emag animations.</li>
+				<li class="bugfix">Fixed stuff landing in disposals through windows.</li>
+			</ul>
+			<h3 class="author">SECBATON-GRIFFON updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="spellcheck">The merch computer entry for small cages now has a capitalised title, better grammar, and no extra full stop.</li>
+				<li class="spellcheck">Every other erroneous double full stop has also been fixed.</li>
+			</ul>
+			<h3 class="author">west3436 updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">Cigarettes will no longer ignite smokers. Big Tobacco wins again.</li>
+			</ul>
+			<h2 class="date">2024.09.02</h2>
+			<h3 class="author">DeityLink updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="rscadd">Chaplains who adhere to the Belmont religion now spawn with a box containing clothing reminiscent of Richter Belmont, and a flask of Sacred Water in their pocket. They can also throw their bible to hit people around them with it.</li>
+				<li class="rscadd">Sacred Water is a new reagent that turns Holy Water into more of itself when in contact with it. When splashed on a floor, it creates sacred flames that only burn the unholy (that is, vampires, cultists, and any other supernatural creature)</li>
+				<li class="rscadd">Players may now forge a Battle Cross out of silver at an anvil. Battle Crosses are basically boomerangs that deal bonus damage to supernatural creatures, but they only return to the hands of those of the Belmont religion.</li>
+				<li class="experiment">Boomerangs have been rewritten from scratch and now behave more like you would expect from a boomerang in a video game. They are now a lot more reliable so their damage has been lowered from 16 to 10, but they still feel really strong so I&#39;m looking forward to feedback by players who have been on both ends of a boomerang throw.</li>
+				<li class="imageadd">Boomerangs have also gotten a re-sprite.</li>
+				<li class="imageadd">Attacking supernatural creatures with holy weapons now displays a visual effect.</li>
+				<li class="imageadd">Kamina and Simon&#39;s glasses have gotten some visual adjustments on top of proper object icons. Furthermore, you can now unleash their power by using them in your hand and throwing them.</li>
+				<li class="bugfix">Fixed the wrong icon appearing for some bibles in the religion picker interface.</li>
+			</ul>
+			<h3 class="author">SECBATON-GRIFFON updated:</h3>
+			<ul class="changes bgimages16">
+				<li class="bugfix">The mode change buttons on assemblies now properly refresh them.</li>
+				<li class="tweak">Assembly windows now refresh as the timers tick down, instead of manually with the refresh button.</li>
+				<li class="tweak">Unnecessary close and refresh buttons have now been removed from the UIs of timers, proximity sensors, infrared sensors and light tile remotes as these functions happen normally now.</li>
+			</ul>
 			<h2 class="date">2024.08.31</h2>
 			<h3 class="author">DeityLink updated:</h3>
 			<ul class="changes bgimages16">
@@ -1788,43 +1823,6 @@ ADDING CREDITS?  EDIT templates/changelog.tmpl.html
 				<li class="tweak">the Colorful Syndrome disease effect has been reworked, and now splatters the surroundings of the infected mob with paint instead of using chem smoke.</li>
 				<li class="rscadd">You can now toggle hoods on mannequins or other players by using the stripping menu.</li>
 				<li class="tweak">Some machines now automatically appear higher when built on top of tables, or when tables are placed below them, and return to their default offset when the table is removed or flipped.</li>
-			</ul>
-			<h2 class="date">2023.12.09</h2>
-			<h3 class="author">DeityLink updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="imageadd">Fixed Nuka Cola bottles having the same hole that soda cans get when you open them, instead their cap gets visibly removed.</li>
-				<li class="rscadd">Opening a Nuka Cola bottle now actually gives you a bottle cap.</li>
-			</ul>
-			<h3 class="author">DorainGrey updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Horizon: Fixes IAA Maint Door Access &amp; Virology Access Panels (Again)</li>
-				<li class="bugfix">Snaxi: Fixes Medicine Cabinet being missing from Medbay</li>
-			</ul>
-			<h3 class="author">Mintgreen01 updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added new Pomf the Chicken toy. All the credit goes to Janez420Ivan and &gt;&gt;454993992-kun.</li>
-				<li class="rscdel">Replaced Sylveon with Pomf the Chicken as a pomf coin reward.</li>
-			</ul>
-			<h3 class="author">nervere updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="rscadd">Added a sound for when someone is successfully knocked out with the rolling pin.</li>
-				<li class="rscadd">Made the rolling pin and briefcase&#39;s behavior when targeting head far more consistent; tweaked some of its probabilities.</li>
-				<li class="tweak">The rolling pin&#39;s hitsound is now less metallic, using the baseball bat&#39;s hitsound for mobs instead.</li>
-			</ul>
-			<h2 class="date">2023.12.08</h2>
-			<h3 class="author">DeityLink updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="experiment">Implemented a new subsystem that revamps the way reagent containers normalize their temperature in relation to the environment. This new method makes reagents reach room temperature quite faster on average (except when using a Stasis Beaker), and has been finely adjusted so temperature changes are more noticeable while also feeling realistic. You can Alt Middle click a beaker or food item to blow some air on them and accelerate the process. As an added bonus, this system consumes a negligible amount of CPU compared to the one in effect until now, and is much simpler to read and adjust, thus more maintainable.</li>
-				<li class="experiment">The thermal dissipation subsystem has been disabled</li>
-			</ul>
-			<h3 class="author">DorainGrey updated:</h3>
-			<ul class="changes bgimages16">
-				<li class="bugfix">Fixes Horizon ERT, Nuke Squads and death squads.</li>
-				<li class="bugfix">Fixes minor bug with coinpress &amp; miner ore processor on asteroid.</li>
-				<li class="bugfix">Snaxi Cargo Conveyors Fixed</li>
-				<li class="bugfix">Snaxi Atmos reworked to not route through reinforced walls</li>
-				<li class="bugfix">Snaxi SMES charge automatically</li>
-				<li class="bugfix">General Engineering reworks</li>
 			</ul>
 		</div>
 		<!--
