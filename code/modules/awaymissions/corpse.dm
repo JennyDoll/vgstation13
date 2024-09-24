@@ -1328,7 +1328,13 @@
 
 	var/mob/M = .
 	if(M.gender == FEMALE)
+<<<<<<< HEAD
 		corpseuniform = existing_typesof(/obj/item/clothing/under/dress)
+=======
+		if(!islist(corpseuniform))
+			corpseuniform = list(corpseuniform)
+		corpseuniform += existing_typesof(/obj/item/clothing/under/dress)
+>>>>>>> 400e668ba97ae39f3fcedc4075b9c662f981aed3
 
 	if(prob(50))
 		corpsemask = null
