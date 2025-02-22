@@ -274,6 +274,7 @@ var/list/datum/stack_recipe/metal_recipes = list (
 	new/datum/stack_recipe("floor tile", /obj/item/stack/tile/metal, 1, 4, 60),
 	new/datum/stack_recipe("metal rod",  /obj/item/stack/rods,          1, 2, 60),
 	new/datum/stack_recipe("conveyor belt", /obj/item/stack/conveyor_assembly, 2, 1, 20),
+	new/datum/stack_recipe("plated catwalk frame", /obj/item/stack/tile/plated_catwalk, 1, 4, 60),
 	//new/datum/stack_recipe/dorf("chain", /obj/item/stack/chains, 2, 1, 20, 5, inherit_material = TRUE),
 	null,
 	new/datum/stack_recipe("computer frame", /obj/structure/computerframe,                      5, time = 25, one_per_turf = 1			    ),
@@ -340,6 +341,7 @@ var/list/datum/stack_recipe/metal_recipes = list (
 		), 2),
 	new/datum/stack_recipe("table parts", /obj/item/weapon/table_parts,                           2                                ),
 	new/datum/stack_recipe("rack parts",  /obj/item/weapon/rack_parts,                                                             ),
+	new/datum/stack_recipe("crate shelf parts", /obj/item/weapon/rack_parts/shelf,                5                                ),
 	new/datum/stack_recipe("filing cabinet", /obj/structure/filingcabinet/filingcabinet,						  2, one_per_turf = 1, time = 15   ),
 	new/datum/stack_recipe("closet",      /obj/structure/closet/basic,                            2, one_per_turf = 1, time = 15   ),
 	new/datum/stack_recipe("metal crate", /obj/structure/closet/crate/basic,                      2, one_per_turf = 1, time = 15   ),
@@ -444,6 +446,11 @@ var/list/datum/stack_recipe/plasteel_recipes = list (
 		new/datum/stack_recipe("shuttle bed",                      /obj/structure/bed/racecar/shuttle,                    2, one_per_turf = 1, on_floor = 1),
 		new/datum/stack_recipe("fire truck bed",                      /obj/structure/bed/racecar/firetruck,                    2, one_per_turf = 1, on_floor = 1),
 		)),
+	null,
+	new/datum/stack_recipe("Reinforced machine frame",	/obj/machinery/constructable_frame/machine_frame/reinforced,	5,  time = 60, one_per_turf = 1	),
+	null,
+	new/datum/stack_recipe("Reactor casing frame",	/obj/structure/girder/reactor,	4,  time = 50, one_per_turf = 1	),
+	new/datum/stack_recipe("Reactor fuel reservoir",	/obj/item/weapon/fuelrod,	2,	time = 25),
 	)
 
 /* ====================================================================

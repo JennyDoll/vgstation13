@@ -200,13 +200,17 @@
 		var/datum/organ/external/a_hand = H.get_active_hand_organ()
 		if(!a_hand.can_use_advanced_tools())
 			if(display_message)
-				to_chat(user, "<span class='warning'>Your [a_hand] doesn't have the dexterity to do this!</span>")
+				to_chat(user, "<span class='warning'>Your [a_hand.display_name] doesn't have the dexterity to do this!</span>")
 			return 0
 	return 1
 
 /obj/item/weapon/gun/proc/Fire(atom/target, mob/living/user, params, reflex = 0, struggle = 0, var/use_shooter_turf = FALSE)
 	//Exclude lasertag guns from the M_CLUMSY check.
 	. = reset_point_blank_shot()
+
+	if(!can_Fire(user, 1))
+		return
+
 	var/explode = FALSE
 	var/dehand = FALSE
 	if(istype(user, /mob/living))
@@ -232,9 +236,6 @@
 			M.drop_item(src, force_drop = 1)
 			qdel(src)
 			return
-
-	if(!can_Fire(user, 1))
-		return
 
 	add_fingerprint(user)
 	var/atom/originaltarget = target
@@ -418,7 +419,9 @@
 					playsound(user, in_chamber.fire_sound, fire_volume, 1)
 			in_chamber.firer = M
 			in_chamber.on_hit(M)
-			if (!in_chamber.nodamage)
+			if(in_chamber.has_special_suicide)
+				in_chamber.custom_mouthshot(user)
+			else if (!in_chamber.nodamage)
 				user.apply_damage(in_chamber.damage*2.5, in_chamber.damage_type, LIMB_HEAD, used_weapon = "Point blank shot in the mouth with \a [in_chamber]")
 				user.death()
 				var/suicidesound = pick('sound/misc/suicide/suicide1.ogg','sound/misc/suicide/suicide2.ogg','sound/misc/suicide/suicide3.ogg','sound/misc/suicide/suicide4.ogg','sound/misc/suicide/suicide5.ogg','sound/misc/suicide/suicide6.ogg')

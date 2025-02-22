@@ -210,6 +210,8 @@ var/const/INGEST = 2
 		var/current_reagent_transfer = current_reagent.volume * part
 		if(preserve_data)
 			trans_data = current_reagent.data
+		if(current_reagent.id in reagents_to_always_log)
+			log_transfer = TRUE
 		if(log_transfer)
 			logged_message += "[current_reagent_transfer]u of [current_reagent.name]"
 			if(current_reagent.id in reagents_to_log)
@@ -616,10 +618,11 @@ trans_to_atmos(var/datum/gas_mixture/target, var/amount=1, var/multiplier=1, var
 	total_thermal_mass = get_thermal_mass()
 	return 0
 
-/datum/reagents/proc/clear_reagents()
+/datum/reagents/proc/clear_reagents(var/preserve_unremovable=FALSE)
 	amount_cache.len = 0
 	for(var/datum/reagent/R in reagent_list)
-		del_reagent(R.id,update_totals=0)
+		if(!preserve_unremovable || (R.flags & CHEMFLAG_NOTREMOVABLE) )
+			del_reagent(R.id,update_totals=0)
 	// Only call ONCE. -- N3X
 	update_total()
 	if(my_atom)

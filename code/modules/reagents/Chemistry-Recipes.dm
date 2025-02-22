@@ -85,7 +85,7 @@
 		if(L.stat != DEAD)
 			e.amount *= 0.5
 	e.start()
-	holder.clear_reagents()
+	holder.clear_reagents(TRUE)
 	holder.add_reagent(POTASSIUM_HYDROXIDE, created_volume)
 
 /datum/chemical_reaction/explosion_potassium/holy
@@ -785,7 +785,7 @@
 			S.start()
 			sleep(10)
 			S.start()
-	holder.clear_reagents()
+	holder.clear_reagents(TRUE)
 
 /datum/chemical_reaction/chemsmoke/bleach
 	name = "Bleach Fumes"
@@ -1200,7 +1200,7 @@
 		var/datum/effect/system/foam_spread/s = new()
 		s.set_up(created_volume, location, holder, 0)
 		s.start()
-	holder.clear_reagents()
+	holder.clear_reagents(TRUE)
 
 /datum/chemical_reaction/metalfoam
 	name = "Metal Foam"
@@ -2120,9 +2120,8 @@
 	required_container = /obj/item/slime_extract/adamantine
 
 /datum/chemical_reaction/slime_extract/slimegolem/on_reaction(var/datum/reagents/holder)
-	var/obj/effect/golem_rune/Z = new /obj/effect/golem_rune
-	Z.forceMove(get_turf(holder.my_atom))
-	Z.announce_to_ghosts()
+	var/obj/effect/decal/cleanable/golem_rune/Z = new /obj/effect/decal/cleanable/golem_rune(get_turf(holder.my_atom))
+	Z.creator = usr
 	..()
 
 /datum/chemical_reaction/slime_extract/slimediamond2
@@ -2534,6 +2533,13 @@
 	id = PANCAKE
 	result = PANCAKE
 	required_reagents = list(FLOUR = 10, MILK = 30, LIQUIDBUTTER = 2, EGG_YOLK = 8, SODIUMCHLORIDE = 1, SUGARS = 5)
+	result_amount = 56 // 1:1
+
+/datum/chemical_reaction/paincake_mix
+	name = "Paincake Mix"
+	id = PAINCAKE
+	result = PAINCAKE
+	required_reagents = list(NOVAFLOUR = 10, MILK = 30, LIQUIDBUTTER = 2, EGG_YOLK = 8, SODIUMCHLORIDE = 1, SUGARS = 5) //Not sure if I should replace the egg with pacid, so it's just a flour difference.
 	result_amount = 56 // 1:1
 
 //Jesus christ how horrible
@@ -4270,6 +4276,13 @@
 	id = SQUASH
 	result = SQUASH
 	required_reagents = list(MANLYDORF = 1, DEGENERATECALCIUM = 1, HYPERZINE = 1)
+	result_amount = 2
+
+/datum/chemical_reaction/priaxate
+	name = "Priaxate"
+	id = PRIAXATE
+	result = PRIAXATE
+	required_reagents = list(GRAVY = 1, TRICORDRAZINE = 1)
 	result_amount = 2
 
 #undef ALERT_AMOUNT_ONLY

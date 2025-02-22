@@ -9,6 +9,7 @@
 #define CHEMFLAG_DISHONORABLE 1
 #define CHEMFLAG_OBSCURING	2
 #define CHEMFLAG_PIGMENT	4
+#define CHEMFLAG_NOTREMOVABLE	8 //cannot be rid of by charcoal (or other reagent tomfoolery means).
 
 #define EXPLICITLY_INVALID_REAGENT_ID "Use this ID if the reagent is not supposed to be used, like for the base type of other reagents."
 
@@ -166,6 +167,7 @@
 #define HOLYSALTS 			"holysalts"
 #define CREATINE 			"creatine"
 #define CARPPHEROMONES 			"carppheromones"
+#define KILLERPHEROMONES 		"killerpheromones"
 #define BLACKPEPPER 			"blackpepper"
 #define CINNAMON 			"cinnamon"
 #define ZAMSPICES			"zamspices"
@@ -463,6 +465,7 @@
 #define GEOMETER		"geometer"
 #define EGG_YOLK		"egg_yolk"
 #define PANCAKE			"pancake"
+#define PAINCAKE		"paincake"
 #define SPAGHETTI		"spaghetti"
 #define MUSTARD_POWDER	"mustard_powder"
 #define MAYO			"mayo"
@@ -531,12 +534,20 @@
 #define LEMONDROP		"lemondrop"
 #define FEVERFEW		"feverfew"
 #define SQUASH			"squash"
+#define PRIAXATE		"priaxate"
 
 #define ACRYLIC			"acrylic"
 #define ACETONE			"acetone"
 #define NANOPAINT		"nano_paint"
 #define FLAXOIL			"flax_oil"
 #define WAX				"wax"
+
+#define PLUTONIUM		"plutonium"
+#define RADON			"radon"
+#define LEAD			"lead"
+#define THALLIUM		"thallium"
+#define REGENERATECALCIUM	"regeneratecalcium"
+#define EQUALIZONE		"equalizone"
 
 #define DYE_DANDELIONS	"dandelion_dye"
 

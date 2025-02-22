@@ -3,8 +3,10 @@
 /*
  * A large number of misc global procs.
  */
+#if DM_VERSION < 516
 /proc/sign(x)
 	return x!=0?x/abs(x):0
+#endif
 
 /proc/getline(atom/M,atom/N)//Ultra-Fast Bresenham Line-Drawing Algorithm
 	var/px=M.x		//starting x
@@ -570,7 +572,7 @@
 	for(var/i = 1 to numticks)
 		for(var/target in targets)
 			var/image/target_progress_bar = targets[target]
-			target_progress_bar.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
+			target_progress_bar?.icon_state = "prog_bar_[round(((i / numticks) * 100), 10)]"
 		sleep(delay_fraction)
 		var/user_loc_to_check = use_user_turf ? get_turf(user) : user.loc
 		for(var/atom/target in targets)
@@ -606,6 +608,8 @@
 		progress_bar.loc = null
 
 /proc/stop_progress_bar(var/mob/user, var/image/progress_bar)
+	if(!progress_bar || !user)
+		return
 	progress_bar.icon_state = "prog_bar_stopped"
 	spawn(0.2 SECONDS)
 		remove_progress_bar(user, progress_bar)
@@ -761,108 +765,6 @@
 /datum/coords/proc/add(var/datum/coords/C)
 	var/datum/coords/CR = new(x_pos+C.x_pos,y_pos+C.y_pos,z_pos+C.z_pos)
 	return CR
-
-// If you're looking at this proc and thinking "that's exactly what I need!"
-// then you're wrong and you need to take a step back and reconsider.
-/atom/movable/proc/DuplicateObject(var/location)
-	var/atom/movable/duplicate = new src.type(location)
-	duplicate.change_dir(dir)
-	duplicate.plane = plane
-	duplicate.layer = layer
-	duplicate.name = name
-	duplicate.desc = desc
-	duplicate.pixel_x = pixel_x
-	duplicate.pixel_y = pixel_y
-	duplicate.pixel_w = pixel_w
-	duplicate.pixel_z = pixel_z
-	return duplicate
-
-/area/proc/copy_contents_to(area/A , platingRequired = FALSE)
-	//Takes: Area. Optional: If it should copy to areas that don't have plating
-	//Returns: Nothing.
-	//Notes: Attempts to move the contents of one area to another area.
-	//       Movement based on lower left corner. Tiles that do not fit
-	//		 into the new area will not be moved.
-
-	if(!A || !src)
-		return 0
-
-	var/list/turfs_src = get_area_turfs(src.type)
-	var/list/turfs_trg = get_area_turfs(A.type)
-
-	var/src_min_x = 0
-	var/src_min_y = 0
-	for (var/turf/T in turfs_src)
-		if(T.x < src_min_x || !src_min_x)
-			src_min_x	= T.x
-		if(T.y < src_min_y || !src_min_y)
-			src_min_y	= T.y
-
-	var/trg_min_x = 0
-	var/trg_min_y = 0
-	for (var/turf/T in turfs_trg)
-		if(T.x < trg_min_x || !trg_min_x)
-			trg_min_x	= T.x
-		if(T.y < trg_min_y || !trg_min_y)
-			trg_min_y	= T.y
-
-	var/list/refined_src = new/list()
-	for(var/turf/T in turfs_src)
-		refined_src += T
-		refined_src[T] = new/datum/coords
-		var/datum/coords/C = refined_src[T]
-		C.x_pos = (T.x - src_min_x)
-		C.y_pos = (T.y - src_min_y)
-
-	var/list/refined_trg = new/list()
-	for(var/turf/T in turfs_trg)
-		refined_trg += T
-		refined_trg[T] = new/datum/coords
-		var/datum/coords/C = refined_trg[T]
-		C.x_pos = (T.x - trg_min_x)
-		C.y_pos = (T.y - trg_min_y)
-
-	var/list/copiedobjs = list()
-
-	moving:
-		for (var/turf/T in refined_src)
-			var/datum/coords/C_src = refined_src[T]
-			for (var/turf/B in refined_trg)
-				var/datum/coords/C_trg = refined_trg[B]
-				if(C_src.x_pos == C_trg.x_pos && C_src.y_pos == C_trg.y_pos)
-					var/old_name = T.name
-					var/old_dir = T.dir
-					var/old_icon_state = T.icon_state
-					var/old_icon = T.icon
-
-					if(platingRequired)
-						if(istype(B, /turf/space))
-							continue moving
-
-					B.ChangeTurf(T.type)
-					B.name = old_name
-					B.dir = old_dir
-					B.icon_state = old_icon_state
-					B.icon = old_icon
-
-					B.return_air().copy_from(T.return_air())
-
-					for(var/obj/O in T)
-						copiedobjs += O.DuplicateObject(B)
-
-					for(var/mob/M in T)
-						if(!M.can_shuttle_move())
-							continue
-						copiedobjs += M.DuplicateObject(B)
-
-					refined_src -= T
-					refined_trg -= B
-					continue moving
-
-	for(var/obj/machinery/door/new_door in copiedobjs)
-		new_door.update_nearby_tiles()
-
-	return copiedobjs
 
 /proc/view_or_range(distance = world.view , center = usr , type)
 	switch(type)
@@ -1218,7 +1120,7 @@ var/mob/dview/tview/tview_mob = new()
 		result = "-[result]"
 	return result
 
-/proc/get_random_colour(var/simple, var/lower, var/upper)
+/proc/get_random_colour(var/simple = FALSE, var/lower = 0, var/upper = 255)
 	var/colour
 	if(simple)
 		colour = pick(list("FF0000","FF7F00","FFFF00","00FF00","0000FF","4B0082","8F00FF"))
