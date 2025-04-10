@@ -1390,7 +1390,7 @@ Though often said to be old, outdated technology, fission power should not be un
 <h2>What you'll need</h2>
 building a reactor is an expensive endeavor, costing a lot of both time and resources. For the most basic of reactor designs, here is the bare minimum needed to set one up and start generating power. Most of the materials are either provided in the starter kit, or should be available on-site.
 <ul>
-	<li>69 sheets of plasteel</li>
+	<li>60 sheets of plasteel</li>
 	<li>42 metal rods</li>
 	<li>15 lengths of wire</li>
 	<li>3 mater bins</li>
@@ -1419,7 +1419,7 @@ building a reactor is an expensive endeavor, costing a lot of both time and reso
 <h2>How to construct the parts</h2>
 	<h3>Reactor Casing</h3>
 	<ol>
-		<li>Use 4 plasteel to construct a reactor casing frame in the desired location</li>
+		<li>Use 3 plasteel to construct a reactor casing frame in the desired location</li>
 		<li>Insert 4 metal rods inside of the frame</li>
 		<li>Use a screwdriver to fasten the rods</li>
 		<li>(Optional) Insert a straight pipe into the frame to make it a coolant port</li>
@@ -1452,6 +1452,7 @@ building a reactor is an expensive endeavor, costing a lot of both time and reso
 	<h3>Isotopic Separational Combiner</h3>
 	<ol>
 		<li>Use 5 metal to construct a machine frame in the desired location</li>
+		<li><ul><li>Do note that the gas port will face SOUTH relative to your station's orientation</li></ul></li>
 		<li>Add 5 lengths of wiring to the machine</li>
 		<li>Insert the circuitboard</li>
 		<li>Add a 2 matter bins, micro-manipulator, 2 scanning modules, and a console screen to the frame</li>

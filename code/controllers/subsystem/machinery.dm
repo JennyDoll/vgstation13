@@ -37,6 +37,7 @@ var/list/global/fissionreactorlist=list()
 		reactor.fissioncycle()
 		reactor.coolantcycle()
 		reactor.misccycle()
+		reactor.emitsound()
 
 	var/obj/machinery/M
 	var/c = currentrun_index

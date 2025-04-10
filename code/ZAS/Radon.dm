@@ -6,5 +6,7 @@
 	if(!src.loc)
 		return
 	
-	var/molesofradon=src.loc.return_air().molar_density(GAS_RADON)*CELL_VOLUME
+	
+	var/datum/gas_mixture/environment=src.loc.return_air()
+	var/molesofradon=(environment?.molar_density(GAS_RADON) || 0)  *CELL_VOLUME
 	src.apply_radiation(molesofradon*1.5, RAD_EXTERNAL)

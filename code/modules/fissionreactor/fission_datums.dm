@@ -19,6 +19,8 @@ datums for the fission reactor, which includes the fuel and reactor
 	var/fuel_rods_affected_by_rods=0
 	var/time_last_ticked=null
 	
+	var/time_last_sound_emission=0 //used to play sounds every 2 seconds.
+	
 	var/coolantport_counter=0 // this varible exists to ensure that all coolant ports get treated equally, because if we didn't it would have a flow prefrence towards the ports with lower indexes.
 	var/control_rod_insertion=1  //phase 1 vars. modified during runtime
 	var/control_rod_target=1 // this is to create a bit of input lag to make things a bit more tense. also allows autoscram to work while the controller is unpowered.
@@ -44,6 +46,7 @@ datums for the fission reactor, which includes the fuel and reactor
 	coolant.volume = CELL_VOLUME
 	fissionreactorlist+=src
 	time_last_ticked=world.time
+	time_last_sound_emission=world.time
 
 /datum/fission_reactor_holder/Destroy()
 	fissionreactorlist-=src //remove from global list
@@ -586,10 +589,35 @@ datums for the fission reactor, which includes the fuel and reactor
 	time_last_ticked=world.time
 	
 
-
-
-
-
+/datum/fission_reactor_holder/proc/emitsound()
+	if(!considered_on())
+		return
+	if (world.time + 2 SECONDS >=time_last_sound_emission)
+		time_last_sound_emission=world.time
+		for(var/mob/living/M in world)
+			if(!M.client)
+				continue
+			if(M.loc.z!=zlevel)	
+				continue	
+			var/dx1=abs(M.loc.x-origin_x)
+			var/dx2=abs(M.loc.x-corner_x)
+			var/dy1=abs(M.loc.y-origin_y)
+			var/dy2=abs(M.loc.y-corner_y)
+			var/dist=max(min(dx1,dx2),min(dy1,dy2))
+			if( dist<11) //within 10 tiles of a reactor edge
+				var/sound/S = sound('sound/machines/fission/reactor_hum.ogg')
+				S.pan=0
+				if (M.loc.x>origin_x && M.loc.x > corner_x)
+					//pan right
+					S.pan=min(dx1,dx2)*-5
+				else if (M.loc.x<origin_x && M.loc.x < corner_x)
+					//pan left
+					S.pan=min(dx1,dx2)*5
+				
+				S.falloff = 2
+				S.volume=23*(1-control_rod_insertion)+10
+				M << S
+			
 
 
 /datum/fission_fuel

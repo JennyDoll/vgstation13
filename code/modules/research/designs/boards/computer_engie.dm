@@ -197,7 +197,7 @@
 	
 /datum/design/fission_fuel_maker
 	name = "Circuit Design (Isotopic Separational Combiner)"
-	desc = "Allows for the construction of circuit boards used to seperate and combine different isotopes of materials"
+	desc = "Allows for the construction of circuit boards used to separate and combine different isotopes of materials.\nRemember that the gas port will face south once constructed."
 	id = "fission_control"
 	req_tech = list(Tc_PROGRAMMING = 4, Tc_ENGINEERING = 4)
 	build_type = IMPRINTER

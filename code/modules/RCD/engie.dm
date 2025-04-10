@@ -28,8 +28,8 @@
 		schem_groups+=airlock_g
 		schem_groups+=window_g
 	
-		current_menu=schem_groups[1].name
-		schem_groups[1].switch_to()
+		current_menu=schem_groups[1]?.name
+		schem_groups[1]?.switch_to()
 	
 
 /obj/item/device/rcd/matter/engineering/Destroy()
@@ -45,15 +45,21 @@
 /obj/item/device/rcd/matter/engineering/attack_self(var/mob/user)
 	rebuild_ui()	
 	interface.show(user)
+	if( locate(user.client) in loaded_clients )
+		return
+		
 	for(var/datum/rcd_scematic_grouping/schemgroup in schem_groups)
 		schemgroup.send_assets(user.client)
 		for(var/datum/rcd_grouped_schematic/sch)
 			sch.send_assets(user.client)
 	interface.hide(user) //have to do this since loading so many images takes a lot of time. and no images is better than no UI
 	interface.show(user)
+	loaded_clients+=user.client
 
 
 /obj/item/device/rcd/matter/engineering/Topic(var/href, var/list/href_list)	
+	if(href_list["clear_images"])
+		loaded_clients=new()
 	if(href_list["set_group"])
 		for(var/datum/rcd_scematic_grouping/schem_group in schem_groups)
 			if(schem_group.name==href_list["set_group"])
@@ -109,7 +115,7 @@
 /obj/item/device/rcd/matter/engineering/rebuild_ui()
 	var/dat=""
 	
-	dat+="Compressed Matter: [matter]/[max_matter]<hr>"
+	dat+="Compressed Matter: [matter]/[max_matter] <span class='schem'><a href='?src=\ref[interface];clear_images=yes;'>Reload Images</a></span><hr>"
 	
 	//that's right, you can embed a stylesheet in the html body, and you better believe i'm going to do this instead of setting up a whole new file for like 2 rules.
 	dat+={"<style> 
@@ -219,8 +225,8 @@
 	schem_groups+=new /datum/rcd_scematic_grouping/build_airlock/engi_std(src)
 	schem_groups+=new /datum/rcd_scematic_grouping/build_windows/engi_std(src)
 	
-	current_menu=schem_groups[1].name
-	schem_groups[1].switch_to()
+	current_menu=schem_groups[1]?.name
+	schem_groups[1]?.switch_to()
 
 	
 /obj/item/device/rcd/borg/engineering/attack_self(var/mob/user)
@@ -234,18 +240,21 @@
 
 	rebuild_ui()	
 	interface.show(user)
+	if( locate(user.client) in loaded_clients )
+		return
+		
 	for(var/datum/rcd_scematic_grouping/schemgroup in schem_groups)
 		schemgroup.send_assets(user.client)
 		for(var/datum/rcd_grouped_schematic/sch)
 			sch.send_assets(user.client)
 	interface.hide(user) //have to do this since loading so many images takes a lot of time. and no images is better than no UI
 	interface.show(user)
+	loaded_clients+=user.client
 
 
 /obj/item/device/rcd/borg/engineering/Topic(var/href, var/list/href_list)
-	//for(var/i in href_list)
-	//	world.log << "[i] = [href_list[i]]"
-		
+	if(href_list["clear_images"])
+		loaded_clients=new()
 	if(href_list["set_group"])
 		for(var/datum/rcd_scematic_grouping/schem_group in schem_groups)
 			if(schem_group.name==href_list["set_group"])
@@ -301,7 +310,7 @@
 /obj/item/device/rcd/borg/engineering/rebuild_ui()
 	var/dat=""
 	
-	dat+="Charge: [floor(matter)]<hr>"
+	dat+="Charge: [floor(matter)] <span class='schem'><a href='?src=\ref[interface];clear_images=yes;'>Reload Images</a></span><hr>"
 	
 	//that's right, you can embed a stylesheet in the html body, and you better believe i'm going to do this instead of setting up a whole new file for like 2 rules.
 	dat+={"<style> 

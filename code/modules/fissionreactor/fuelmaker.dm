@@ -314,7 +314,9 @@ Container: [container ? container : "none"][container ? " \[[container.reagents.
 				html+="<td style='text-align:right;'><a  <a href='?src=\ref[interface];reagent=[R.id];dir=to_fuel;amount=1'>1u</a> <a href='?src=\ref[interface];reagent=[R.id];dir=to_fuel;amount=5'>5u</a> <a href='?src=\ref[interface];reagent=[R.id];dir=to_fuel;amount=10'>10u</a> <a href='?src=\ref[interface];reagent=[R.id];dir=to_fuel;amount=25'>25u</a> <a href='?src=\ref[interface];reagent=[R.id];dir=to_fuel;amount=999999'>All</a></td></tr>"
 		if(air_contents)
 			if(air_contents.gas[GAS_RADON])
-				html+="<tr><td> Radon <a href='?src=\ref[interface];reagent=RADON;dir=goto_wiki'>(?)</a> [air_contents.gas[GAS_RADON]] units </td>"
+				var/amt=air_contents.gas[GAS_RADON]
+				amt = amt < 0.01 ? "<0.01" : amt
+				html+="<tr><td> Radon <a href='?src=\ref[interface];reagent=radon;dir=goto_wiki'>(?)</a> [amt] units </td>"
 				html+="<td style='text-align:right;'><a  <a href='?src=\ref[interface];reagent=RADON;dir=to_fuel;amount=1'>1u</a> <a href='?src=\ref[interface];reagent=RADON;dir=to_fuel;amount=5'>5u</a> <a href='?src=\ref[interface];reagent=RADON;dir=to_fuel;amount=10'>10u</a> <a href='?src=\ref[interface];reagent=RADON;dir=to_fuel;amount=25'>25u</a> <a href='?src=\ref[interface];reagent=RADON;dir=to_fuel;amount=999999'>All</a></td></tr>"
 	
 

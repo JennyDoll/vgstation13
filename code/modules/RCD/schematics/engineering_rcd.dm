@@ -581,7 +581,7 @@
 	return dat
 	
 /datum/rcd_scematic_grouping/build_windows/switch_to()
-	linked_rcd.selected_schem = schematics[1]		
+	linked_rcd.selected_schem = schematics[2] //use rglass by default.		
 
 
 /datum/rcd_scematic_grouping/build_windows/send_assets(var/client/client)
@@ -935,9 +935,11 @@
 	newairlock.name=linked_rcd.settings["airlock_name"] || name
 		
 	if(linked_rcd.settings["airlock_acany"])
-		newairlock.req_one_access = linked_rcd.settings["airlock_access"]?.Copy()
+		var/list/aa=linked_rcd.settings["airlock_access"]
+		newairlock.req_one_access = aa?.Copy()
 	else
-		newairlock.req_access = linked_rcd.settings["airlock_access"]?.Copy()
+		var/list/aa=linked_rcd.settings["airlock_access"]
+		newairlock.req_access = aa?.Copy()
 	newairlock.autoclose=1
 	return cost
 	
@@ -1119,9 +1121,11 @@
 	newwindoor.change_dir(dirtouse)
 		
 	if(linked_rcd.settings["airlock_acany"])
-		newwindoor.req_one_access = linked_rcd.settings["airlock_access"]?.Copy()
+		var/list/aa=linked_rcd.settings["airlock_access"]
+		newwindoor.req_one_access = aa?.Copy()
 	else
-		newwindoor.req_access = linked_rcd.settings["airlock_access"]?.Copy()
+		var/list/aa=linked_rcd.settings["airlock_access"]
+		newwindoor.req_access = aa?.Copy()
 	newwindoor.autoclose=1
 	return cost	
 

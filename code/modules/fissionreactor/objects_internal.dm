@@ -152,7 +152,13 @@ included:
 	var/adjacencybonus=1.0
 	var/hatchopen=FALSE
 	
-
+/obj/machinery/fissionreactor/fissionreactor_fuelrod/process()
+	..()
+	var/lightpow=0
+	if(associated_reactor?.considered_on())
+		lightpow=associated_reactor.fuel.wattage*(1-associated_reactor.control_rod_insertion)/250000
+	
+	set_light(3,lightpow , "77ffffff")
 
 /obj/machinery/fissionreactor/fissionreactor_fuelrod/New()
 	for(var/datum/fission_reactor_holder/r in fissionreactorlist)
@@ -160,6 +166,7 @@ included:
 			if(r.adopt_part(src))
 				break
 	..()
+	set_light(3,0 , "77ffffff")
 
 /obj/machinery/fissionreactor/fissionreactor_fuelrod/examine()
 	..()
